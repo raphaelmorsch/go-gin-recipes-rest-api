@@ -1,0 +1,62 @@
+basePath: /
+consumes:
+- application/json
+host: localhost:8080
+info:
+  contact:
+    email: mohamed@labouardy.com
+    name: Mohamed Labouardy
+    url: https://labouardy.com
+  description: |-
+    This is a sample recipes API. You can find out more about
+    the API at https://github.com/PacktPublishing/Building-Distributed-Applications-in-Gin.
+  title: Recipes API
+  version: 1.0.0
+paths:
+  /recipes:
+    get:
+      description: Returns list of recipes
+      operationId: listRecipes
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successful operation
+      tags:
+      - recipes
+    post:
+      description: Creates new Recipe
+      operationId: newRecipe
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successful operation
+      tags:
+      - recipes
+  /recipes/{id}:
+    put:
+      description: Update an existing recipe
+      operationId: updateRecipe
+      parameters:
+      - description: ID of the recipe
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Succesful operation
+        "400":
+          description: invalid output
+        "404":
+          description: invalid recipe ID
+      tags:
+      - recipes
+produces:
+- application/json
+schemes:
+- http
+swagger: "2.0"
